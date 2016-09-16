@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>home</head>
+<body>
+<h3>home</h3>
+
+<div>
+    <table border="1px solid gray">
+        <tr>
+            <td>name</td>
+            <td>pitch</td>
+            <td>rate</td>
+            <td>audio</td>
+            <td>video</td>
+            <td>image</td>
+            <td>thumb</td>
+            <td>action</td>
+            <td>action</td>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.pitch}"></td>
+            <td th:text="${item.rate}"></td>
+            <td th:text="${item.mixVoice}"></td>
+            <td th:text="${item.video}"></td>
+            <td th:text="${item.image}"></td>
+            <td th:text="${item.thumb}"></td>
+            <td><input th:type="button" th:value="Edit"/></td>
+            <td><form action="#" th:action="@{/remove-item/${item.id}}"><input th:type="button" th:value="Remove"/></form></td>
+            <br/>
+        </tr>
+    </table>
+    <a th:href="@{/add-item}">Add new item</a>
+
+</div>
+</body>
+</html>

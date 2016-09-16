@@ -32,37 +32,6 @@
     <input th:type="submit" th:value="Save"/><br/>
     <input th:type="reset" th:value="Reset"/>
 </form>
-
-<div>
-    <table border="1px solid gray">
-        <tr>
-            <td></td>
-            <td>name</td>
-            <td>pitch</td>
-            <td>rate</td>
-            <td>audio</td>
-            <td>video</td>
-            <td>image</td>
-            <td>thumb</td>
-            <td>action</td>
-            <td>action</td>
-        </tr>
-        <tr th:each="item : ${items}">
-            <td><input th:type="checkbox" th:id="${item.id}" th:value="${item.id}"/></td>
-            <td th:text="${item.name}"></td>
-            <td th:text="${item.pitch}"></td>
-            <td th:text="${item.rate}"></td>
-            <td th:text="${item.mixVoice}"></td>
-            <td th:text="${item.video}"></td>
-            <td th:text="${item.image}"></td>
-            <td th:text="${item.thumb}"></td>
-            <td><input th:type="button" th:value="Edit"/></td>
-            <td><input th:type="button" th:value="Remove"/></td>
-            <br/>
-        </tr>
-    </table>
-
-
-</div>
+<a th:href="@{/}">See items</a>
 </body>
 </html>
