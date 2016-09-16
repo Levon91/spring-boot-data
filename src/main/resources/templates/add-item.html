@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>add-item</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h3>add item</h3>
+<form action="#" th:action="@{/add-item}" th:object="${addItem}" method="POST">
+    <label th:for="name">name</label>
+    <input th:type="text" th:maxlength="20" th:field="*{name}"/><br/>
+
+    <label th:for="pitch">pitch</label>
+    <input th:type="text" th:maxlength="20" th:field="*{pitch}"/><br/>
+
+    <label th:for="rate">rate</label>
+    <input th:type="number" th:min="1" th:max="10" th:field="*{rate}"/><br/>
+
+    <label th:for="audio">audio</label>
+    <input th:type="file" th:field="*{mixVoice}"/><br/>
+
+    <label th:for="video">video</label>
+    <input th:type="file" th:field="*{video}"/><br/>
+
+    <label th:for="image">image</label>
+    <input th:type="file" th:field="*{image}"/><br/>
+
+    <label th:for="thumb">thumb</label>
+    <input th:type="file" th:field="*{thumb}"/><br/>
+
+    <input th:type="submit" th:value="Save"/><br/>
+    <input th:type="reset" th:value="Reset"/>
+</form>
+
+<div>
+    <table border="1px solid gray">
+        <tr>
+            <td></td>
+            <td>name</td>
+            <td>pitch</td>
+            <td>rate</td>
+            <td>audio</td>
+            <td>video</td>
+            <td>image</td>
+            <td>thumb</td>
+            <td>action</td>
+            <td>action</td>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td><input th:type="checkbox" th:id="${item.id}" th:value="${item.id}"/></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.pitch}"></td>
+            <td th:text="${item.rate}"></td>
+            <td th:text="${item.mixVoice}"></td>
+            <td th:text="${item.video}"></td>
+            <td th:text="${item.image}"></td>
+            <td th:text="${item.thumb}"></td>
+            <td><input th:type="button" th:value="Edit"/></td>
+            <td><input th:type="button" th:value="Remove"/></td>
+            <br/>
+        </tr>
+    </table>
+
+
+</div>
+</body>
+</html>
